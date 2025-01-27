@@ -1,0 +1,30 @@
+{
+    "grok_settings_age_restriction_enabled": {
+        "existsOn": ["ios", "ios_testflight", "android_stable", "android_beta", "android_alpha", "web"],
+        "releasedOn": ["ios_testflight", "android_beta", "android_alpha", "web"]
+    },
+    "grok_settings_restriction_age": {
+        "ios": {
+            "value": 18
+        },
+        "android": {
+            "value": 18
+        },
+        "web": {
+            "value": 18
+        }
+    },
+    "responsive_web_suppress_app_button_14988": {
+        "name": "responsive_web_suppress_app_button_14988",
+        "type": "experiment",
+        "ios": {
+            "enumeration_values": []
+        },
+        "android": {
+            "enumeration_values": []
+        },
+        "web": {
+            "enumeration_values": []
+        }
+    }
+}

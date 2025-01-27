@@ -1,0 +1,14 @@
+{
+  "name": "x-scraper",
+  "version": "1.0.0",
+  "description": "X Scraper for scraping x.com platform updates.",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/index.js",
+    "dev": "tsc && node build/index.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

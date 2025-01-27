@@ -1,2 +1,2 @@
-# X-SCRAPPER
-Upcoming [X (formerly Twitter)](https://x.com) datamining service based on [Swakshan/X-Flags](https://github.com/Swakshan/X-Flags).
+# X-Scraper
+An upcoming data mining tool for X (formerly Twitter), built upon the [Swakshan/X-Flags](https://github.com/Swakshan/X-Flags) project.
