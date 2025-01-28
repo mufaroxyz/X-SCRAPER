@@ -1,1 +1,1 @@
-import './Xscraper.js';
+import './Xscraper';
