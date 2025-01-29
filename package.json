@@ -2,15 +2,16 @@
   "name": "x-scraper",
   "version": "1.0.0-development",
   "description": "Engine for scraping x.com platform updates and track multi-platform flags.",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc && node dist/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DzikStar/X-SCRAPER.git"
-  },
-  "main": "build/index.js",
-  "scripts": {
-    "build": "tsc",
-    "start": "node build/index.js",
-    "dev": "tsc && node build/index.js"
   },
   "dependencies": {},
   "devDependencies": {

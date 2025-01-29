@@ -1,10 +1,15 @@
 {
   "compilerOptions": {
+    // Language & Version settings
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
+
+    // Directory settings
     "outDir": "dist",
     "rootDir": "src",
+
+    // Type-checking settings
     "strict": true
   }
 }

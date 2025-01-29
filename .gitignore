@@ -1,2 +1,5 @@
 ## Node.js Trashes
 node_modules
+
+## Development leftovers
+/dist
