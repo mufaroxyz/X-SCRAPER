@@ -4,7 +4,16 @@
     "tabWidth": 4,
     "useTabs": true,
     "printWidth": 120,
-    "arrowParens": "always",
+    "arrowParens": "avoid",
     "bracketSpacing": true,
-    "endOfLine": "lf"
+    "endOfLine": "auto",
+    "trailingComma": "all",
+    "overrides": [
+        {
+            "files": "*.{ts,tsx}",
+            "options": {
+                "parser": "typescript"
+            }
+        }
+    ]
 }
