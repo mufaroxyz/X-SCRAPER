@@ -1,34 +1,26 @@
-import * as fs from 'node:fs';
+import * as fs from 'node:fs/promises';
 import * as path from 'path';
+// Consider importing a logging library like pino for better logging
+// OR return errors to the caller and let it handle logging
 
 export async function clearPath(targetPath: string): Promise<void> {
     try {
-        const entries = await fs.promises.readdir(targetPath, { withFileTypes: true });
-
-        for (const entry of entries) {
-            const fullPath = path.join(targetPath, entry.name);
-
-            if (entry.isDirectory()) {
-              await clearPath(fullPath);
-              await fs.promises.rmdir(fullPath);
-            } else {
-              await fs.promises.unlink(fullPath);
-            }
-          }
+        // rm supports native recursive deletion, no need for a custom recursive function
+        await fs.rm(targetPath, { recursive: true, force: true });
     } catch (error) {
-        console.log(`[ERROR] PATH NOT CLEARED ${error}`)
+        console.error(`[ERROR] PATH NOT CLEARED: ${error}`);
     }
 }
 
 export async function saveFile(fileName: string, fileContent: string, filePath: string = './'): Promise<void> {
-	try {
-		await fs.promises.mkdir(filePath, { recursive: true });
-		await fs.writeFile(`${filePath}${fileName}`, fileContent, err => {
-			if (err) {
-				console.error(err);
-			}
-		});
-	} catch (error) {
-		console.log(`[ERROR] FILE NOT SAVED: ${error}`);
-	}
+    try {
+        // ! possible path injection !
+        const fullPath = path.join(filePath, fileName);
+        await fs.mkdir(filePath, { recursive: true });
+        await using file = await fs.open(fullPath, 'w');
+        await file.write(fileContent);
+        await file.close();
+    } catch (error) {
+        console.error(`[ERROR] FILE NOT SAVED: ${error}`);
+    }
 }
